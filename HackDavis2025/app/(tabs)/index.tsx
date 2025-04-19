@@ -1,14 +1,13 @@
-import { Image, StyleSheet, Platform, Button, Alert } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
+import { router } from 'expo-router';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
   const handleStartPress = () => {
-    // TODO: Implement navigation to the next screen (e.g., scanning screen)
-    Alert.alert('Start Pressed', 'Navigate to scan screen...');
+    // Navigate to the scan screen using its file path
+    router.push('/scan');
   };
 
   return (

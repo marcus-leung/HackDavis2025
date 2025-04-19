@@ -2,7 +2,6 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
-import { Colors } from '@/constants/Colors';
 
 export default function StartScreen() {
   const handleStartPress = () => {
@@ -12,8 +11,7 @@ export default function StartScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title" style={[styles.title, { color: Colors.light.text }]}>EthicScope</ThemedText>
-      <ThemedText style={[styles.subtitle, { color: Colors.light.text }]}>Discover the impact</ThemedText>
+      <ThemedText type="title" style={styles.title}>EthicScope</ThemedText>
       <TouchableOpacity onPress={handleStartPress} style={styles.startButton}>
         <ThemedText style={styles.startButtonText}>Start</ThemedText>
       </TouchableOpacity>
@@ -26,20 +24,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.light.background,
+    backgroundColor: '#f0f0f0',
     padding: 20,
   },
   title: {
     fontSize: 48, // Larger title for start screen
     fontWeight: 'bold',
-    marginBottom: 10, // Adjust spacing for subtitle
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 18,
-    color: 'gray', // Default color, will be overridden by inline style
-    marginBottom: 60,
-    textAlign: 'center',
+    marginBottom: 60, // More space below title
   },
   startButton: {
     backgroundColor: '#4CAF50',

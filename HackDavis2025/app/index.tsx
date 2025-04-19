@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
@@ -10,44 +10,15 @@ export default function StartScreen() {
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title" style={styles.title}>EthicScope</ThemedText>
-      <TouchableOpacity onPress={handleStartPress} style={styles.startButton}>
-        <ThemedText style={styles.startButtonText}>Start</ThemedText>
+    <ThemedView className="flex-1 justify-center items-center bg-gray-100 p-5">
+      <ThemedText className="text-5xl font-bold mb-16">EthicScope</ThemedText>
+      <TouchableOpacity
+        onPress={handleStartPress}
+        className="bg-green-500 w-32 h-32 rounded-full justify-center items-center shadow-lg"
+        // Using w-32/h-32 for ~128px, adjust if needed
+      >
+        <ThemedText className="text-white text-2xl font-bold">Start</ThemedText>
       </TouchableOpacity>
     </ThemedView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-    padding: 20,
-  },
-  title: {
-    fontSize: 48, // Larger title for start screen
-    fontWeight: 'bold',
-    marginBottom: 60, // More space below title
-  },
-  startButton: {
-    backgroundColor: '#4CAF50',
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-  },
-  startButtonText: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold',
-  },
-}); 
+} 

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { router } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
@@ -13,51 +13,16 @@ export default function ScanScreen() {
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title" style={styles.title}>Scan Product</ThemedText>
-      <View style={styles.cameraPlaceholder}>
-        <ThemedText style={styles.placeholderText}>Camera View Placeholder</ThemedText>
+    <ThemedView className="flex-1 items-center justify-around p-5 bg-gray-100">
+      <ThemedText className="text-2xl font-bold text-center mb-5">Scan Product</ThemedText>
+      <View className="w-11/12 aspect-[3/4] bg-gray-300 justify-center items-center rounded-lg mb-5">
+        {/* Using w-11/12 for width: '90%' approximately */}
+        <ThemedText className="text-gray-600 text-base">Camera View Placeholder</ThemedText>
         {/* In a real app, Expo Camera would go here */}
       </View>
-      <ThemedText style={styles.instructions}>Point your camera at a barcode or product tag.</ThemedText>
+      <ThemedText className="text-base text-center text-gray-500 mb-8">Point your camera at a barcode or product tag.</ThemedText>
       {/* Temporary button to simulate scan completion */}
       <Button title="Simulate Scan" onPress={handleScanComplete} />
-      {/* Remove Back button as it doesn't make sense in a tab root */}
     </ThemedView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around', // Distribute space
-    padding: 20,
-    backgroundColor: '#f0f0f0', // Consistent background
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  cameraPlaceholder: {
-    width: '90%',
-    aspectRatio: 3 / 4, // Typical camera aspect ratio
-    backgroundColor: '#cccccc', // Grey placeholder color
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  placeholderText: {
-    color: '#555555',
-    fontSize: 16,
-  },
-  instructions: {
-    fontSize: 16,
-    textAlign: 'center',
-    color: 'gray',
-    marginBottom: 30,
-  },
-}); 
+} 

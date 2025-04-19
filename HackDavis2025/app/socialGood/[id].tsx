@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
@@ -15,59 +15,27 @@ export default function SocialGoodScreen() {
   // ---
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView className="flex-1 bg-gray-100">
       <Stack.Screen options={{ title: `Social Good - ${productName}` }} />
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <ThemedText type="title" style={styles.title}>Social Good Details</ThemedText>
-        <ThemedText style={styles.subtitle}>Metrics for {productName}</ThemedText>
+      <ScrollView contentContainerStyle={{ padding: 20, alignItems: 'center' }}>
+        <ThemedText className="text-2xl font-bold mb-1">Social Good Details</ThemedText>
+        <ThemedText className="text-base text-gray-500 mb-6">Metrics for {productName}</ThemedText>
 
-        <View style={styles.metricsContainer}>
+        <View className="flex-row justify-around w-full mb-8">
           <MetricGauge value={laborMetric} label="Fair Labor" color="#3498db" />
           <MetricGauge value={transparencyMetric} label="Supply Chain Transparency" color="#9b59b6" />
           {/* Add more gauges for other social metrics */}
         </View>
 
-        <View style={styles.infoSection}>
-          <ThemedText type="subtitle">Detailed Report:</ThemedText>
-          <ThemedText>Placeholder text describing the social good aspects, labor conditions, certifications, known issues, etc. for Product {id}.</ThemedText>
+        <View className="w-full p-4 bg-white rounded-lg mb-5 shadow">
+          <ThemedText className="text-lg font-bold mb-2">Detailed Report:</ThemedText>
+          <ThemedText className="text-gray-700">
+            Placeholder text describing the social good aspects, labor conditions, certifications, known issues, etc. for Product {id}.
+          </ThemedText>
           {/* Add more detailed text, lists, etc. */}
         </View>
 
       </ScrollView>
     </ThemedView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f0f0f0',
-  },
-  scrollContainer: {
-    padding: 20,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: 'gray',
-    marginBottom: 25,
-  },
-  metricsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-    marginBottom: 30,
-  },
-  infoSection: {
-    width: '100%',
-    padding: 15,
-    backgroundColor: '#ffffff',
-    borderRadius: 8,
-    marginBottom: 20,
-  },
-}); 
+} 

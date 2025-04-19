@@ -1,4 +1,4 @@
-import { StyleSheet, FlatList, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
@@ -12,47 +12,18 @@ const historyData = [
 
 export default function HistoryScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title" style={styles.title}>Scan History</ThemedText>
+    <ThemedView className="flex-1 pt-12 px-5 bg-gray-100">
+      <ThemedText className="text-2xl font-bold mb-5 text-center">Scan History</ThemedText>
       <FlatList
         data={historyData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.historyItem}>
+          <View className="bg-white p-4 rounded-lg mb-3 shadow">
             <ThemedText>{item.name}</ThemedText>
           </View>
         )}
-        ListEmptyComponent={<ThemedText>No scan history yet.</ThemedText>}
+        ListEmptyComponent={<ThemedText className="text-center text-gray-500">No scan history yet.</ThemedText>}
       />
     </ThemedView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 50, // Add padding to avoid status bar overlap
-    paddingHorizontal: 20,
-    backgroundColor: '#f0f0f0',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  historyItem: {
-    backgroundColor: '#ffffff',
-    padding: 15,
-    borderRadius: 8,
-    marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.20,
-    shadowRadius: 1.41,
-    elevation: 2,
-  },
-}); 
+} 

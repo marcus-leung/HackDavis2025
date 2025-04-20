@@ -6,6 +6,8 @@ import CameraSection from "./components/CameraSection"
 import RatingsSection from "./components/RatingsSection"
 import { RefreshCw } from "lucide-react"
 
+// import Globe from "./components/Globe"
+
 function App() {
   const [image, setImage] = useState(null)
   const [sustainabilityRating, setSustainabilityRating] = useState(null)
@@ -30,6 +32,8 @@ function App() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-amber-50 to-green-100 p-4">
       <TitleSection />
       <CameraSection image={image} onTakePicture={handleTakePicture} isLoading={isLoading} />
+
+      {/* <Globe />  */}
 
       {image && !isLoading && (
         <>

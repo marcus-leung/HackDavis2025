@@ -71,7 +71,7 @@ const Slider = ({ reviews }) => {
               rel="noopener noreferrer"
               className="text-green-800 text-sm font-semibold text-right block hover:underline"
             >
-              {review.Source}
+              [Source]
             </a>
           </motion.div>
         ))}

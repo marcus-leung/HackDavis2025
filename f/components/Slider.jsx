@@ -6,10 +6,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Slider = ({ reviews }) => {
   const carouselRef = useRef(null);
-  const scrollAmount = 280; // depends on card width + margin
+  const scrollAmount = 280;
 
-  // Duplicate items for infinite scroll illusion
-  const extendedReviews = [...reviews, ...reviews];
+  const extendedReviews = [...reviews, ...reviews]; 
 
   const scroll = (direction) => {
     const container = carouselRef.current;
@@ -20,10 +19,8 @@ const Slider = ({ reviews }) => {
     }
   };
 
-  // Snap back to start to loop illusion
   useEffect(() => {
     const container = carouselRef.current;
-
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
       const scrollWidth = container.scrollWidth;
@@ -67,8 +64,15 @@ const Slider = ({ reviews }) => {
             className="min-w-[260px] max-w-xs flex-shrink-0 bg-white rounded-2xl shadow-md p-6 border border-green-100 hover:scale-105 transition-transform duration-300"
             whileHover={{ scale: 1.05 }}
           >
-            <p className="text-gray-700 text-sm mb-4">"{review.text}"</p>
-            <p className="text-green-800 text-sm font-semibold text-right">– {review.name}</p>
+            <p className="text-gray-700 text-sm mb-4">"{review.Review}"</p>
+            <a
+              href={review.Source}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-800 text-sm font-semibold text-right block hover:underline"
+            >
+              {review.Source}
+            </a>
           </motion.div>
         ))}
       </motion.div>

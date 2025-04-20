@@ -51,7 +51,7 @@ EthicScope supports conscious consumerism by:
 
 - 🌐 Web App: [https://ethicscope.tech](https://ethicscope.tech)  
 - 📱 Mobile: Fully responsive design, works seamlessly on mobile browsers
-- [Watch our demo video](https://youtu.be/VojOdpquwYU).
+- [Watch our demo video]([https://youtu.be/VojOdpquwYU](https://youtu.be/nNdB_ETGdSk?si=9RuvpJUa-SExPVX5)).
 
 ---
 

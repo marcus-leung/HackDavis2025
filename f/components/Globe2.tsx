@@ -30,6 +30,7 @@ export default function GlobeDemo() {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
+
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
   const sampleArcs = [
     {
@@ -396,8 +397,8 @@ export default function GlobeDemo() {
 
   return (
     <div className="flex flex-col items-center justify-center py-20 min-h-screen bg-gradient-to-b from-green-50 to-green-100 relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] px-4">
-        <motion.div
+<div className="relative mx-auto w-full max-w-lg aspect-square px-4">
+<motion.div
           initial={{
             opacity: 0,
             y: 20,
@@ -411,13 +412,9 @@ export default function GlobeDemo() {
           }}
           className="div"
         >
-          <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+          <h2 className="text-center text-5xl font-bold text-green-800 dark:text-white">
             This is where your product comes from.
           </h2>
-          {/* <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-            This globe is interactive and customizable. Have fun with it, and
-            don&apos;t forget to share it. :)
-          </p> */}
         </motion.div>
         <div className="absolute w-full h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />

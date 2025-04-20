@@ -21,6 +21,10 @@ export default function RatingModal({ label, rating, onClose, color = "green", d
     amber: "bg-amber-600 hover:bg-amber-700",
   }
 
+  // Circle animation properties
+  const circleStrokeDasharray = 2 * Math.PI * 50; // Circumference of the circle (radius = 50)
+  const circleStrokeDashoffset = circleStrokeDasharray - (circleStrokeDasharray * rating) / 10;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-sm border-2 border-green-100">
@@ -32,10 +36,34 @@ export default function RatingModal({ label, rating, onClose, color = "green", d
         </div>
 
         <div className="flex justify-center my-6">
-          <div
-            className={`w-24 h-24 rounded-full flex items-center justify-center border-4 ${color === "green" ? "border-green-500" : "border-amber-500"}`}
-          >
-            <span className="text-2xl font-bold">{rating}/10</span>
+          <div className={`w-24 h-24 flex items-center justify-center`}>
+            <svg
+              className="w-full h-full transform rotate-90"
+              viewBox="0 0 120 120"
+            >
+              <circle
+                cx="60"
+                cy="60"
+                r="50"
+                className="text-gray-200"
+                strokeWidth="10"
+                fill="none"
+              />
+              <circle
+                cx="60"
+                cy="60"
+                r="50"
+                className={color === "green" ? "text-green-500" : "text-amber-500"}
+                strokeWidth="10"
+                fill="none"
+                strokeDasharray={circleStrokeDasharray}
+                strokeDashoffset={circleStrokeDashoffset}
+                style={{
+                  transition: 'stroke-dashoffset 0.5s ease-in-out',
+                }}
+              />
+            </svg>
+            <span className="absolute text-2xl font-bold">{rating}/10</span>
           </div>
         </div>
 

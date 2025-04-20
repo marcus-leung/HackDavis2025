@@ -7,18 +7,22 @@ const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ssr: false,
 });
 
-export default function GlobeDemo() {
+interface GlobeDemoProps {
+  product: string; 
+}
+
+export default function GlobeDemo({ product }: GlobeDemoProps) {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#1E3A8A", // Slightly lighter blue for the globe
+    globeColor: "#1E3A8A", 
     showAtmosphere: true,
-    atmosphereColor: "#E0F2FE", // Light blue for atmosphere
+    atmosphereColor: "#E0F2FE", 
     atmosphereAltitude: 0.1,
     emissive: "#1E3A8A",
-    emissiveIntensity: 0.15, // Slightly increased for brightness
+    emissiveIntensity: 0.15,
     shininess: 1.0,
-    polygonColor: "rgba(255,255,255,0.8)", // Brighter polygons
-    ambientLight: "#60a5fa", // Brighter ambient light
+    polygonColor: "rgba(255,255,255,0.8)",
+    ambientLight: "#60a5fa", 
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
     pointLight: "#ffffff",
@@ -413,7 +417,7 @@ export default function GlobeDemo() {
           className="div"
         >
           <h2 className="text-center text-5xl font-bold text-green-800 dark:text-white">
-            This is where your product comes from.
+            This is where {product} comes from.
           </h2>
         </motion.div>
         <div className="absolute w-full h-full z-10">

@@ -159,7 +159,7 @@ function App() {
         <CameraSection image={image} onTakePicture={handleTakePicture} isLoading={isLoading} />
       </motion.div>
 
-      {barcode && !isLoading && <Globe2 />}
+      {barcode && !isLoading && <Globe2 product={companyName}/>}
 
       {image && !isLoading && (
         <>

@@ -7,6 +7,7 @@ import RatingsSection from "./components/RatingsSection"
 import { RefreshCw } from "lucide-react"
 
 // import Globe from "./components/Globe"
+import Globe2 from "./components/Globe2"
 
 function App() {
   const [image, setImage] = useState(null)
@@ -29,11 +30,11 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-amber-50 to-green-100 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-green-50 to-green-100 p-4">
       <TitleSection />
       <CameraSection image={image} onTakePicture={handleTakePicture} isLoading={isLoading} />
 
-      {/* <Globe />  */}
+      {barcode && !isLoading && <Globe2 />} {/* Render the globe only after barcode is scanned */}
 
       {image && !isLoading && (
         <>
